@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Світ тварин</title>
+  <!-- підключаємо css -->
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header>
+    <h1>Світ тварин</h1>
+    <p class="subtitle">Цікавий сайт про тварин</p>
+  </header>
+
+  <main class="container">
+    <div class="intro">
+      <img src="images/tvarini.jpg" alt="kitten">
+      <p class="intro-text">На цьому сайті ви знайдете цікаву інформацію про тварин з усього світу!</p>
+    </div>
+
+    <div class="controls">
+      <input type="text" id="search" placeholder="Пошук тварин...">
+      <select id="filter">
+        <option value="all">Всі</option>
+        <option value="mammal">Ссавці</option>
+        <option value="bird">Птахи</option>
+      </select>
+    </div>
+
+    <div class="grid" id="animalGrid"></div>
+    <div class="empty" id="emptyMsg">Нічого не знайдено...</div>
+  </main>
+
+  <footer>
+    <p>© 2025 Світ тварин</p>
+  </footer>
+
+  <!-- модальне вікно -->
+  <div class="modal" id="animalModal">
+    <div class="modal-card">
+      <img id="modalImg" src="" alt="">
+      <div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <div class="modal-actions">
+          <button class="close-btn" id="closeModal">Закрити</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- підключаємо js -->
+  <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+:root {
+  --accent: #2b8b6f;
+  --bg: #f7faf7;
+  --card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, Arial, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: #123;
+
+  /* для футера при низу */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #2b8b6f, #3aa07a);
+  color: #fff;
+  padding: 18px 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  opacity: 0.9;
+}
+
+/* MAIN CONTENT */
+main.container {
+  flex: 1; /* займає весь доступний простір між хедером і футером */
+  max-width: 980px;
+  margin: 18px auto;
+  padding: 0 16px;
+}
+
+.intro {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.intro img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.intro-text {
+  margin-top: 6px;
+  color: #345;
+}
+
+/* SEARCH + FILTER */
+.controls {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+
+input[type=text],
+select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d6e6df;
+  min-width: 160px;
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeUp 0.6s forwards;
+}
+
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.tag {
+  background: #eef9f1;
+  color: var(--accent);
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  color: #5b6b63;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 20px 0;
+  background: #eaeaea;
+}
+
+/* EMPTY MESSAGE */
+.empty {
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  text-align: center;
+  display: none;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 20px;
+}
+
+.modal.open {
+  display: flex;
+  animation: fadeIn 0.4s;
+}
+
+.modal-card {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 780px;
+  width: 100%;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  transform: scale(0.9);
+  animation: popIn 0.4s forwards;
+}
+
+.modal-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.modal-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.close-btn {
+  background: #eee;
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background: #ddd;
+}
+
+/* MEDIA */
+@media (max-width: 720px) {
+  .modal-card {
+    grid-template-columns: 1fr;
+  }
+  .modal-card img {
+    height: 210px;
+  }
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
